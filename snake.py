@@ -1,8 +1,8 @@
 '''
 Snake game.
 Authors:
-<insert the names of your teammates here>
-'''
+<Deonna Brooks, Jada Stokes>
+''' 
 
 import pygame
 import random
