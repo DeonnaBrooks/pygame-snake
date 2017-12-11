@@ -48,7 +48,8 @@ def get_direction(previous_direction, event_key):
     if event_key == pygame.K_LEFT:
         return DIRECTION_LEFT
     if event_key == pygame.K_RIGHT:
-         return DIRECTION_RIGHT
+        
+        return DIRECTION_RIGHT
     if event_key == pygame.K_DOWN:
         return DIRECTION_DOWN
 
@@ -61,7 +62,7 @@ def create_food_position():
     The first element is the x position. Must be an int between 0 and GRID_WIDTH - 1, inclusively.
     The second element is the y position. Must be an int between 0 and GRID_HEIGHT - 1, inclusively.
     """
-    food_position = random.randint(0 , GRID_WIDTH -1) , random.randint(0 , GRID_HEIGHT -1)
+    food_position = (random.randint(0 , GRID_WIDTH -1)) , random.randint(0 , GRID_HEIGHT -1)
     return food_position
 
 
@@ -84,21 +85,38 @@ def snake_ran_out_of_bounds(snake):
     Note that the grid is GRID_WIDTH cells wide and GRID_HEIGHT cells high.
     """
     if snake[0][0]==0:
+
        return True
+
     if snake[0][1]==0:
+
         return True
+
     if snake[0][0]==29:
+
         return True
+
     if snake [0][1]==29:
+
        return True
+
     
+
     
+
     
+
     else:
+
         return False
-  
+ 
+
            
-    
+   
+
+  
+
+ 
 
 
 
@@ -119,15 +137,15 @@ def get_score(snake):
     The user earns 10 points for each of the segments in the snake.
     For example, if the snake has 25 segments, the score is 250.
     """
-    score = len(snake)*10
-    return 0
+    
+    return (len((snake)*10))
 
 def get_game_over_text(score):
     """Returns the text to draw on the screen after the game is over.
     This text should contain 'Game Over' as well as the score.
     score - integer representing the current score of the game.
     """
-    return 'Game Over.'
+    return 'Game Over.'+ 'Score: '+ str(score)
 
 
 def get_snake_speed(snake):
@@ -136,6 +154,8 @@ def get_snake_speed(snake):
     The speed at the beginning of the game should be 5. Once the snake has eaten 10 pieces of food,
     the speed of the game should increase (by how much is up to you).
     """
+    if len(snake) > 15:
+        return len(snake) - 6
     return 5
 
 def move_snake(snake, direction, food):
@@ -292,4 +312,3 @@ def start_game():
 
 # Start the snake game.
 start_game()
-
